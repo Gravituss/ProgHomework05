@@ -9,12 +9,10 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-
-    public final String URL = Config.getProperty("baseUrl");
+    public final static String URL = Config.getProperty("baseUrl");
     public final String BROWSER = Config.getProperty("driver");
     public final String TIMEOUT = Config.getProperty("timeout");
     WebDriver driver;
-
 
     public WebDriver getDriver () {
         if (BROWSER.equals("firefox")) return new FirefoxDriver();
@@ -24,19 +22,15 @@ public class BaseTest {
 
     @Before
     public void preConfig () {
-        System.setProperty("webdriver.gecko.driver", "C:\\Temp\\geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\Temp\\chromedriver.exe");
-        driver = getDriver();
+        System.setProperty("webdriver.gecko.driver", "C:\\pr\\gecko\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\pr\\cd\\chromedriver.exe");
         driver.manage().timeouts().implicitlyWait(Integer.parseInt(TIMEOUT), TimeUnit.SECONDS);
-        driver.get(URL);
+
     }
 
     @After
     public void tearDown () {
         driver.quit();
     }
-
-
-
 
 }
