@@ -1,13 +1,19 @@
+
 import org.testng.annotations.Test;
 
 
+public class TestngTest extends BaseTest {
 
 
-public class TestngTest {
-
-    @Test(alwaysRun = true)
+    @Test
     public void test1(){
         System.out.println("55455");
+
+
+
+
+
+
 
 
 
