@@ -5,8 +5,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import utils.Config;
 
-import java.util.concurrent.TimeUnit;
-
 public class BaseTest {
 
     public final static String URL = Config.getProperty("baseUrl");
@@ -20,17 +18,13 @@ public class BaseTest {
         return new ChromeDriver();
     }
 
-    @Before
-    public void preConfig () {
-        System.setProperty("webdriver.gecko.driver", "C:\\pr\\gecko\\geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "C:\\pr\\cd\\chromedriver.exe");
-        driver.manage().timeouts().implicitlyWait(Integer.parseInt(TIMEOUT), TimeUnit.SECONDS);
-
-    }
-
-    @After
     public void tearDown () {
         driver.quit();
     }
 
+    @Before
+    public void preConfig () {
+        System.setProperty("webdriver.gecko.driver", "C:\\pr\\gecko\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\pr\\cd\\chromedriver.exe");
+    }
 }
