@@ -25,18 +25,25 @@ public class BaseRozetkaPage {
     public WebElement getDismissBtn() {
         return dismissBtn;
     }
+    public WebElement getSearchField(){
+        return searchField;
+    }
 
-    @FindBy(xpath = "//div[contains(text(),'Отказаться')]")
+    public WebElement getCategoriesDropdown() {
+        return categoriesDropdown;
+    }
+
+    public WebElement getCategorySportItem() {
+        return categorySportItem;
+    }
+
+    @FindBy(xpath = "//div[contains(@class,'notificationPanel') and text()[contains(.,'Отказаться')]]")
     private WebElement dismissBtn;
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy (xpath = "//div[@class = 'rz-header-search-inner']//input[@name = 'text']")
+    private WebElement searchField;
+    @FindBy (xpath = "//div[@class = 'rz-header-search-category']//span[@name = 'rz-search-category-value']")
+    private WebElement categoriesDropdown;
+    @FindBy (xpath = "//div[@class = 'rz-header-search-category']//a[contains(@class," +
+            "'rz-header-search-category') and text()[contains(.,'Спортивные тов')]]")
+    private WebElement categorySportItem;
 }

@@ -1,5 +1,5 @@
 
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.junit.Ignore;
 import org.testng.annotations.Test;
 import pages.BaseRozetkaPage;
 
@@ -28,19 +28,19 @@ public class TestngTest extends BaseTest {
         tearDown();
     }
 
-//    @Test
-//    public void test2() {
-//
-//
-//        preconditions();
-//
-//
-//
-//
-//
-//
-//        tearDown();
-//    }
+    @Test
+    public void test2() {
 
+        preconditions();
+        BaseRozetkaPage basePage = new BaseRozetkaPage(driver);
+        basePage.getDismissBtn().click();
 
+        basePage.getSearchField().sendKeys("Мяч");
+        basePage.getCategoriesDropdown().click();
+        basePage.getCategorySportItem().click();
+        basePage.getSearchField().submit();
+        assert(driver.getPageSource().contains("найдено более"));
+
+        tearDown();
+    }
 }
