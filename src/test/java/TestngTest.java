@@ -19,25 +19,11 @@ public class TestngTest extends BaseTest {
 
     @Test
     public void test1() {
-
-
         preconditions();
         BaseRozetkaPage basePage = new BaseRozetkaPage(driver);
+        basePage.getDismissBtn().click();
         basePage.getMenuElement("Доставка").click();
-        boolean bol = false;
-
-        if(driver.getPageSource().contains("Новой Почтой")){
-            bol = true;
-        }
-        assert(bol);
-
-
-
-
-
-
-
-
+        assert(driver.getPageSource().contains("Доставка производится до входа"));
 
         tearDown();
     }
