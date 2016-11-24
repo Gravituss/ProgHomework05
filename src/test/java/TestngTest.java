@@ -1,6 +1,7 @@
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
+import pages.BaseRozetkaPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,17 +22,14 @@ public class TestngTest extends BaseTest {
 
 
         preconditions();
+        BaseRozetkaPage basePage = new BaseRozetkaPage(driver);
+        basePage.getMenuElement("Доставка").click();
+        boolean bol = false;
 
-
-
-
-
-
-
-
-
-
-
+        if(driver.getPageSource().contains("Новой Почтой")){
+            bol = true;
+        }
+        assert(bol);
 
 
 
@@ -44,7 +42,19 @@ public class TestngTest extends BaseTest {
         tearDown();
     }
 
-
+//    @Test
+//    public void test2() {
+//
+//
+//        preconditions();
+//
+//
+//
+//
+//
+//
+//        tearDown();
+//    }
 
 
 }
