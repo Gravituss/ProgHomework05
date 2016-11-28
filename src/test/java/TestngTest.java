@@ -13,8 +13,7 @@ public class TestngTest extends BaseTest {
         BaseRozetkaPage basePage = new BaseRozetkaPage(driver);
         basePage.getDismissBtn().click();
         basePage.getMenuElement("Доставка").click();
-        assertTrue(driver.findElement(By.xpath(".//*[@id='deliveries-payments-container']/section[1]/ul/li[2]")).getText().contains("Доставка производится до входа"));
-
+        assertTrue(basePage.getCheckTextBlock().getText().contains("Доставка производится до входа"));
     }
 
     @Test

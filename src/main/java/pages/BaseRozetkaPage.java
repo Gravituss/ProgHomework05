@@ -46,4 +46,11 @@ public class BaseRozetkaPage {
     @FindBy (xpath = "//div[@class = 'rz-header-search-category']//a[contains(@class," +
             "'rz-header-search-category') and text()[contains(.,'Спортивные тов')]]")
     private WebElement categorySportItem;
+
+    public WebElement getCheckTextBlock() {
+        return checkTextBlock;
+    }
+
+    @FindBy (xpath = ".//*[@id='deliveries-payments-container']/section[1]/ul/li[2]")
+    private WebElement checkTextBlock;
 }
